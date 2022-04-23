@@ -114,7 +114,7 @@ var annot = this.addAnnot({
 PDFtext(Inputfile,TextToFind)
 {
 	objAcroApp := ComObjCreate("AcroExch.App")
-	;objAcroApp.Show() 
+	;objAcroApp.Show()
 	objAcroAVDoc := ComObjCreate("AcroExch.AVDoc")
 	objAcroAVDoc.Open(Inputfile, "")
 	
@@ -122,7 +122,6 @@ PDFtext(Inputfile,TextToFind)
 	objAcroAVDoc.Maximize( True )
 	objAcroPDDoc := objAcroAVDoc.GetPDDoc
 	
-	;msgbox, % "File Name ---> " objAcroPDDoc.GetFileName() "`n Number of Pages ---> " objAcroPDDoc.GetNumPages() 
 	objJSO := objAcroPDDoc.GetJSObject
 	i := objAcroAVDoc.FindText(TextToFind, 1, 0, 1)
 	if i
@@ -141,12 +140,9 @@ PDFtext(Inputfile,TextToFind)
 			
 			objAcroAVDoc.SetTextSelection( acroPDTextSel ) 
 			objAcroAVDoc.ShowTextSelect() 
-		; http://www.vbforums.com/showthread.php?561501-RESOLVED-2003-How-to-highlight-text-in-pdf
-		; TotalWords := acroHiList.GetNumText
 			TotalWords := objJSO.getPageNumWords(pagenumber)
 			pdPage := objAcroPDDoc.AcquirePage( pagenumber ) 
 			acroPoint := pdPage.GetSize()
-		;msgbox, % pdPage.GetNumber() "`n" acroPoint.x "`n" acroPoint.y "`n" PDPage.GetAnnotIndex
 			
 			loop, %TotalWords%
 			{
@@ -164,14 +160,11 @@ PDFtext(Inputfile,TextToFind)
 			if rect.left
 			{
 				signpdf(rect,pagenumber)
-				;msgbox, check what sign pdf has
 			}
-		;msgbox, % aRect[0] "`n"aRect[1] "`n"aRect[2] "`n"aRect[3] "`n" pdPage.GetNumText()
 		}
 	}
 	
 	
-	;ExportFormat := "com.adobe.acrobat.pdf"
 	objAcroPDDoc := objAcroPDDoc.save(1, Inputfile)
 	avdoc := objAcroAVDoc.Close(1)
 	avdoc := objAcroApp.Exit
