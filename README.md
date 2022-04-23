@@ -27,6 +27,7 @@ msgbox, all pdf have been signed
 return
 ```
 # Custom Stamps
+Following stamps will let you automate custom stamps
 1) goto Menu >> View >> Comments >> Annotation
 2) there you find Stamp
 3) Create a Custom Stamp https://acrobatusers.com/tutorials/stamps-acrobat-x/
