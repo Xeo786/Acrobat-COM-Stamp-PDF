@@ -1,5 +1,6 @@
 # Acrobat-COM-Stamp-PDF
 It can Stamp thousands of pdf in short time 
+https://www.autohotkey.com/boards/viewtopic.php?f=6&t=71376
 
 # Requirements
 1) Acrobat DC pro Installed, we need its COM libs so can't work without it
